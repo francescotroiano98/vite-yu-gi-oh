@@ -1,15 +1,14 @@
 <template>
-    <div>
-        <div class="card mb-3">
+        <div class="_mycardsize text-center card mb-3">
             <img :src="imageLink" class="card-img-top" alt="...">
   
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">{{ name }}</h5>
                         <p class="card-text">{{ type }}</p>
                     
                 </div>
         </div>
-    </div>
+
 </template>
 <script>
 export default {
@@ -28,6 +27,19 @@ export default {
     
 }
 </script>
-<style lang="">
-    
+<style lang="scss" scoped>
+    ._mycardsize{
+        width: calc(100% / 5.5);
+        .card-body{
+            background-color: orange;
+
+            h5{
+                color: white;
+                font-weight: bold;
+            }
+        }
+
+        
+        
+    }
 </style>

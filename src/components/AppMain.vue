@@ -1,9 +1,10 @@
 <template>
-    <div>
-        <h2>Io SONO IL MAIN</h2>
-        <AppMainTop/>
-        <AppMainBottom/>
-    </div>
+    <main>
+        <div>
+            <AppMainTop/>
+            <AppMainBottom/>
+        </div>
+    </main>    
 </template>
 <script>
 import AppMainTop from './AppMainTop.vue';
