@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>{{ store.cardsList.data }}</h2>
+        <h2>Io SONO IL MAIN</h2>
         <AppMainTop/>
         <AppMainBottom/>
     </div>
@@ -26,9 +26,11 @@ export default {
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
         .then((response) => {
 
-            store.cardsList = response.data
+            store.cardsList = response.data.data
 
-            console.log(response.data)
+            store.cardsListUrl = response.data.data
+
+            console.log(response.data.data)
 
             
         })
