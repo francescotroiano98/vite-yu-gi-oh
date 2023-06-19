@@ -36,6 +36,10 @@ export default {
             h5{
                 color: white;
                 font-weight: bold;
+                font-size: 1rem;
+            }
+            p{
+                font-size: 0.9rem;
             }
         }
 
