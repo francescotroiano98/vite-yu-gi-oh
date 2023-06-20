@@ -36,13 +36,7 @@ export default {
         .then((response) => {
 
             store.cardsList = response.data.data
-
-            
-
-           
-
-            
-        })
+         })
 
         }
 

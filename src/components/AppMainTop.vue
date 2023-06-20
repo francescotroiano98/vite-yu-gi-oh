@@ -17,24 +17,32 @@ export default {
         return{
             
             cardsArchetypeList:[],
+            archetypes:[]
         }
     },
     name:"AppMainTop",
     methods: {
         serchedArchetypeList(){
             axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
-        .then((response) => {
-
-            response.data.data.forEach((card) => {
-            this.cardsArchetypeList.push(card.archetype);
-          });
-          console.log(this.cardsArchetypeList);
-
             
-        })
+            .then((response) => {
+                
 
+                    response.data.data.forEach((card) => {
+                        this.cardsArchetypeList.push(card.archetype);
+                        
+
+
+                        
+                    });
+
+                 
+                 
+                 
+                 
+            })
+            
         }
-
 
         
 
