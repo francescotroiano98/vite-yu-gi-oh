@@ -32,7 +32,7 @@ export default {
                         this.cardsArchetypeList.push(card.archetype);
                         
 
-
+                        this.archetypes.push(this.cardsArchetypeList.slice())
                         
                     });
 
