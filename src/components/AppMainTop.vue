@@ -3,7 +3,7 @@
         <div class="container main-top d-flex         align-items-center px-4">
                 <select class="form-select" aria-label="Default     select example">
                     <option selected>Scegli il tuo archetipo</option>
-                    <option value="1">Alien</option>
+                    <option v-for="archetipo in cardsArchetypeList" :value="archetipo[0].archetype_name">{{ archetipo[0].archetype_name }}</option>
                     <option value="2">Noble Knight</option>
                     <option value="3">Melodius</option>
                 </select>
@@ -18,23 +18,23 @@ export default {
             
             cardsArchetypeList:[],
             archetypes:[]
+            
         }
+        
     },
     name:"AppMainTop",
     methods: {
 
         serchedArchetypeList(){
             
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Alien&num=20&offset=0')
+            axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
             .then((response) => {
 
-                    this.cardsArchetypeList.push(response.data.data)
+                   this.cardsArchetypeList.push(response.data)
 
-                    
-            
+                   
 
-                 console.log(this.cardsArchetypeList);
-                
+
                  
                  
             })
@@ -47,6 +47,7 @@ export default {
     },
     created(){
         this.serchedArchetypeList()
+        console.log(this.cardsArchetypeList)
     }
     
 }
