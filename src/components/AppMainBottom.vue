@@ -2,7 +2,7 @@
 <section class="main-bottom-container">
 
     <div class="container main-bottom">
-        <h2 class="m-0 px-1 py-2">Found {{ store.cardsList.length }} cards</h2>
+        <h2 class="m-0 px-1 py-2">Found {{ cardsFounded }} cards</h2> <!--QUI NON E' CORRETTO USARE LO STORE-->
         <YuGiOhDeck/>
     </div>
 
@@ -10,13 +10,17 @@
     
 </template>
 <script>
-import {store} from '../store'
+
 import YuGiOhDeck from '../components/YuGiOhDeck.vue';
 export default {
     data(){
         return{
-            store
+            
         }
+    },
+    props : {
+        cardsFounded : Number,
+
     },
     name: "AppMainBottom",
     components: { 

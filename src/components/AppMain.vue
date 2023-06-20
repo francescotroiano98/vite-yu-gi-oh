@@ -2,7 +2,7 @@
     <main>
         <div v-if="cardList = store.cardsList.length">
             <AppMainTop/>
-            <AppMainBottom/>
+            <AppMainBottom :cardsFounded="store.cardsList.length"/>
         </div>
         <div v-else>
             <RotateCircle/>
