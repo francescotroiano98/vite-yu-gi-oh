@@ -1,12 +1,17 @@
 <template>
     <main>
-        <div>
+        <div v-if="cardList = store.cardsList.length">
             <AppMainTop/>
             <AppMainBottom/>
         </div>
+        <div v-else>
+            <RotateCircle/>
+        </div>
+        
     </main>    
 </template>
 <script>
+import RotateCircle from './RotateCircle.vue'
 import AppMainTop from './AppMainTop.vue';
 import AppMainBottom from './AppMainBottom.vue';
 import {store} from '../store'
@@ -21,6 +26,8 @@ export default {
     components:{
         AppMainTop,
         AppMainBottom,
+        RotateCircle
+
         
     },
     created (){

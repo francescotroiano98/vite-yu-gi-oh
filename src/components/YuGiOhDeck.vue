@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex flex-wrap justify-content-between">
+    <div class="d-flex flex-wrap justify-content-between" >
         
             <YuGiOhSingleCard v-for="singleCard in store.cardsList"
                 :imageLink="singleCard.card_images[0].image_url"
