@@ -22,27 +22,25 @@ export default {
     },
     name:"AppMainTop",
     methods: {
+
         serchedArchetypeList(){
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
             
+            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Alien&num=20&offset=0')
             .then((response) => {
+
+                    this.cardsArchetypeList.push(response.data.data)
+
+                    
+            
+
+                 console.log(this.cardsArchetypeList);
                 
-
-                    response.data.data.forEach((card) => {
-                        this.cardsArchetypeList.push(card.archetype);
-                        
-
-                        this.archetypes.push(this.cardsArchetypeList.slice())
-                        
-                    });
-
-                 
-                 
                  
                  
             })
             
         }
+
 
         
 
