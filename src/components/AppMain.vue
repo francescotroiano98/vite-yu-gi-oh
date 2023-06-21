@@ -1,7 +1,7 @@
 <template>
     <main>
         <div v-if="cardList = store.cardsList.length">
-            <AppMainTop/>
+            <AppMainTop @myarchetype="getCardsFromFilter"/>
             <AppMainBottom :cardsFounded="store.cardsList.length"/>
         </div>
         <div v-else>
@@ -19,7 +19,8 @@ import axios from 'axios';
 export default {
     data(){
         return{
-            store
+            store,
+            apiUrl : 'https://db.ygoprodeck.com/api/v7/cardinfo.php',
         }
     },
     name:"AppMain",
@@ -31,21 +32,28 @@ export default {
         
     },
     methods: {
-        serchedList(){
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
-        .then((response) => {
+        getCardsFromFilter(filter){
+            axios.get(this.apiUrl, {
+                params: {
+                    num: 20,
+                    offset: 0,
+                    archetype : filter
+                }
+            })
 
-            store.cardsList = response.data.data
-         })
+                    .then((response) => {
 
-        }
+                                            this.store.cardsList = response.data.data
+                    })
+
+                }
 
 
         
 
     },
     created (){
-        this.serchedList()
+        this.getCardsFromFilter()
     }
 }
 
